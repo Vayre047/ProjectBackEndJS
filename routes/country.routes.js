@@ -22,15 +22,13 @@ router.get("/countries", async (req, res) => {
 
 router.get("/countries/:countryId", async (req, res) => {
   try {
-    //ES& Object Destructuring with bookId route param
+   
     const { countryId } = req.params;
 
-    //Find Book via its Ids inside the Database
+    //Find Country via its Id's inside the Database
     let foundCountry = await Country.findById(countryId)
 
-
-    // If we had only this first populate we would have only a list of reviews and authors
-    await foundCountry.populate('cities'); // just an indication to populate
+    await foundCountry.populate('cities');
 
     res.render("countries/countries-details.hbs", { country: foundCountry});
 
