@@ -1,0 +1,10 @@
+<h2>Cities:</h2>
+<div>
+  {{#each country.cities}}
+    <div class="box">
+      <a href="/cities/{{_id}}"><h3>{{name}}</h3></a>
+      <p><span class="grey-span">description: </span>{{description}}</p>
+      <img src="{{image}}" />
+    </div>
+  {{/each}}
+</div>

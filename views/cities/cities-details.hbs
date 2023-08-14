@@ -1,0 +1,10 @@
+<h2>Touristic Points:</h2>
+<div>
+  {{#each city.touristicPoints}}
+    <div class="box">
+      <a href="/touristicPoints/{{_id}}"><h3>{{name}}</h3></a>
+      <p><span class="grey-span">description: </span>{{description}}</p>
+
+    </div>
+  {{/each}}
+</div>

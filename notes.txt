@@ -1,0 +1,49 @@
+City: Florence, Italy
+
+TouristicPoint: Cathedral Santa Maria del Fiore
+
+Image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Cattedrale_di_Santa_Maria_del_Fiore_%E2%80%93_Il_Duomo_di_Firenze.jpg/1600px-Cattedrale_di_Santa_Maria_del_Fiore_%E2%80%93_Il_Duomo_di_Firenze.jpg?20210302063417')
+
+Description: 'Dominating the panoramic view of Florence is the Santa Maria del Fiore, the domed cathedral that is often called the Duomo. Known today as the world’s largest masonry dome, this majestic cathedral features 600 years worth of stunning architecture and art works.
+
+Planning for the new church began in the late 1200s and building started in 1296. Unfortunately, politics and the plague interrupted the construction several times. In 1375, workers were instructed to tear down the partially completed church and start over. Except for the marble on the outside, the Florence Cathedral was completed in 1436.
+
+The first architect to work on the Cathedral was Arnolfo di Cambio. He designed it in the Gothic style and left space for a huge dome to top the building. However, he had no idea how to build this dome. Fortunately, Filippo Brunelleschi, a goldsmith and clockmaker, solved this puzzle.'
+
+TouristicPoint: Ponte Vecchio, the famous bridge
+
+Image: url('https://florencetips.com/images/ponte-vecchio.jpg')
+
+Description: 'The Ponte Vecchio is Florence's most famous bridge over the Arno and a must see on the list of 'Things to see in Florence Italy'. The bridge is best known for its shops, which are located on the bridge. Blacksmiths, tanners and butchers used to live here, but nowadays you will mainly encounter jewelers here. In the middle of the bridge you will find a bust of Cellini, who became famous as a metal smith. Around the statue you will find a fence, where couples in love hang a padlock to eternalize their love.'
+
+City: Osaka, Japan 
+
+TouristicPoint: Osaka Castle
+
+image: url('https://resources.matcha-jp.com/resize/720x2000/2018/03/14-50383.webp')
+
+Description: 'Osaka Castle (Ōsaka-jō) was completed in 1586 and took just three years to build. Ordered built by famed Japanese warrior and politician Toyotomi Hideyoshi it was, at the time, the largest castle in Japan.
+
+Almost all Hideyoshi's military commanders were required to contribute stones for its construction, the largest being the Higo-ishi stone, near the south entrance. Standing nearly six meters high and 14.5 meters long, it was contributed to by the celebrated General Kato Kiyomasa from the island of Shodo.
+
+After Hideyoshi's defeat in 1615, the castle was destroyed, only to be rebuilt by the Tokugawa shoguns for reasons of prestige. Again destroyed after the fall of the Shogunate, the castle was reconstructed in its present form in 1931.'
+
+TouristicPoint: Shitennō-ji Temple
+
+image: url('https://www.osp.osaka-info.jp/upload/facility_shop/15/20200123_193729_019596.jpg')
+
+Description: 'Osaka Castle was built as a residence during the second half of the 16th century by Toyotomi Hideyoshi, who was trying to unify Japan during this time. This immense castle―one of Japan's greatest―took over 16 years to be completed.
+
+With the fall of the Toyotomi clan, the Osaka Castle was destroyed by fire. The stone wall and turret visible today were restored during the Edo Period (1603-1868).
+
+Presently, Osaka Castle is one of Japan's three famous castles, along with Nagoya Castle and Kumamoto Castle. Today, it maintains a strikingly powerful appearance as the symbol of Osaka.'
+
+
+
+
+
+
+
+
+
+
