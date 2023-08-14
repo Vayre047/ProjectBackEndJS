@@ -30,7 +30,7 @@ router.post("/cities/:cityId/createTouristicPoint", async (req, res) => {
       $push: { touristicPoints: newTouristicPoint._id },
     });
 
-    res.redirect(`/cities/${cityId}`);
+    res.redirect(`/cities/${cityId}#${newTouristicPoint._id}`);
 
   } catch (error) {
     console.log(error);
