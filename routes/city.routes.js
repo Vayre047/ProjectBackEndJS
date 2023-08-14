@@ -33,20 +33,20 @@ router.post("/touristicPoint/create/:cityId", async (req, res) => {
   try {
     const { cityId } = req.params;
     const { name, description } = req.body;
-    // req object with onfo about request
-    // req.body gives info about what was send via forms, info about the info
 
+    // Create new Touristic Point
     const newTouristicPoint = await TouristicPoint.create({ name, description });
 
-    //Update the Book with new review that was created
+    // Update the City with new Touristic Point that was created
     const cityUpdate = await City.findByIdAndUpdate(cityId, {
       $push: { touristicPoints: newTouristicPoint._id },
     });
 
-
-
     res.redirect(`/cities/${cityId}`);
-  } catch (error) {}
+
+  } catch (error) {
+    
+  }
 });
 
 

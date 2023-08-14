@@ -1,26 +1,30 @@
 <h2>Touristic Points:</h2>
+
+{{city.name}}
+{{city}}
+<div>
+  <h4>Create a Touristic Point in {{city.name}}</h4>
+  <!-- Form to Create a Review -->
+  <form action="/touristicPoint/create/{{city._id}}" method="post">
+    <label>
+      Name:
+      <input type="text" name="name" />
+    </label>
+
+    <label>
+      Description:
+      <input type="text" name="description" />
+    </label>
+
+    <button type="submit">Create Touristic Point</button>
+  </form>
+
+</div>
 <div>
   {{#each city.touristicPoints}}
-    <div class="box">
-      <a href="/touristicPoints/{{_id}}"><h3>{{name}}</h3></a>
-      <p><span class="grey-span">description: </span>{{description}}</p>
-
-    </div>
+  <div class="box">
+    <p>Name: {{name}}</p>
+    <p>Description: {{description}}</p>
+  </div>
   {{/each}}
-
-
-  <h4>Create a Touristic Point!</h4>
-<!-- Form to Create a Review -->
-<form action="/touristicPoint/create/{{city._id}}" method="post">
-   <label> name:
-    <input type="text" name="name" />
-  </label>
- 
-  <label> Description:
-    <input type="text" name="description" />
-  </label>
-    <label for="content">name</label>
-    <textarea name="content" id="content" cols="30" rows="5"></textarea>
-    <button type="submit">Create the review</button>
-</form>
 </div>
