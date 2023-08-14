@@ -4,23 +4,24 @@ const router = require("express").Router();
 const Country = require("../models/Country.model.js");
 const City = require("../models/City.model.js");
 const User = require("../models/User.model.js");
+const TouristicPoint = require("../models/TouristicPoint.model.js")
 
-router.get('/cities', async (req, res, next) => {
+router.get('/cities', async (req, res) => {
   try {
     const allCitiesFromDB = await City.find();
-    res.render('cities/cities-list', { cities: allCitiesFromDB });
+    res.render('cities/cities-list.hbs', { cities: allCitiesFromDB });
 
   } catch (error) {
-    console.log(error);
-    next(error);
+    console.log('Error while getting cities', error);
+    
   }
 });
 
-router.get('/cities/:countryId', async (req, res, next) => {
-  const {countryId} = req.params;
+router.get('/cities/:cityId', async (req, res, next) => {
+  const {cityId} = req.params;
   try {
-    const selectedCity = await City.findById(cityId);
-    res.render('cities/cities-details', selectedCity);
+    const foundCity = await City.findById(cityId);
+    res.render('cities/cities-details.hbs', {city: foundCity});
     
   } catch (error) {
     console.log(error);
@@ -28,6 +29,25 @@ router.get('/cities/:countryId', async (req, res, next) => {
   }
 });
 
+router.post("/touristicPoint/create/:cityId", async (req, res) => {
+  try {
+    const { cityId } = req.params;
+    const { name, description } = req.body;
+    // req object with onfo about request
+    // req.body gives info about what was send via forms, info about the info
+
+    const newTouristicPoint = await TouristicPoint.create({ name, description });
+
+    //Update the Book with new review that was created
+    const cityUpdate = await City.findByIdAndUpdate(cityId, {
+      $push: { touristicPoints: newTouristicPoint._id },
+    });
+
+
+
+    res.redirect(`/cities/${cityId}`);
+  } catch (error) {}
+});
 
 
 module.exports = router;

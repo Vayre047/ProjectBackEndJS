@@ -7,4 +7,20 @@
 
     </div>
   {{/each}}
+
+
+  <h4>Create a Touristic Point!</h4>
+<!-- Form to Create a Review -->
+<form action="/touristicPoint/create/{{city._id}}" method="post">
+   <label> name:
+    <input type="text" name="name" />
+  </label>
+ 
+  <label> Description:
+    <input type="text" name="description" />
+  </label>
+    <label for="content">name</label>
+    <textarea name="content" id="content" cols="30" rows="5"></textarea>
+    <button type="submit">Create the review</button>
+</form>
 </div>
