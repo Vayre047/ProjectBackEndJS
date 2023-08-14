@@ -36,6 +36,9 @@ app.use('/', countryRoutes);
 const cityRoutes = require('./routes/city.routes');
 app.use('/', cityRoutes);
 
+const touristicPointRoutes = require('./routes/touristicPoint.routes');
+app.use('/', touristicPointRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
