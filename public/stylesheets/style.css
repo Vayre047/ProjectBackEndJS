@@ -29,12 +29,11 @@ h1 {
 
 .backgroundConfiguration{
   position: absolute;
+  top: 10%;
+  left: 30%;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  top: 10%;
-  left: 3%
 }
 
 .imageConfiguration{
@@ -44,4 +43,14 @@ h1 {
 
 .titlePosition{
   font-family: 'Dancing Script', cursive;
+}
+
+.lineConfiguration{
+  color: #000;
+  border: 1px #000 solid;
+  height: 0.1px;
+}
+
+.startBtn{
+  border-radius: 15px;
 }
