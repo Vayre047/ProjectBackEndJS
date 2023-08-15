@@ -3,7 +3,7 @@ const router = require("express").Router();
 
 const Country = require("../models/Country.model.js");
 const City = require("../models/City.model.js");
-const User = require("../models/User.model.js");
+//const User = require("../models/User.model.js");
 
 //GET route to display all the countries in the database
 router.get("/countries", async (req, res) => {
