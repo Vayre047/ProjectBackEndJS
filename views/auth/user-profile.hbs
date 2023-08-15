@@ -1,0 +1,18 @@
+{{#if userInSession}}
+  <h1>Hi, {{userInSession.username}}! This is your Profile Page :)</h1>
+  <div id="logout-form">
+    
+    <form action="/profile" method="POST">
+
+      <a href="/"><button type="submit">Log out</button></a>
+
+      {{#if errorMessage}}
+        {{errorMessage}}
+      {{/if}}
+
+    </form>
+  </div>
+
+{{else}}
+  <p>Still not logged in :( </p>
+{{/if}}

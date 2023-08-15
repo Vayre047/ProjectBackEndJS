@@ -15,141 +15,113 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-// GET /auth/signup
+/* SIGNUP */
+
+// GET route that displays a form for new users to signup
 router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
 
-// POST /auth/signup
-router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, email, password } = req.body;
+// POST route to submit the data of the form
+router.post("/signup", async (req, res, next) => {
+  try {
+    // let username --> variable declaration
+    // username = "bonjovi" --> variable initialization
+    // const keywords --> variable declaration + initialization
+    const { username, email, password } = req.body;
 
-  // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
-    res.status(400).render("auth/signup", {
-      errorMessage:
-        "All fields are mandatory. Please provide your username, email and password.",
-    });
-
-    return;
-  }
-
-  if (password.length < 6) {
-    res.status(400).render("auth/signup", {
-      errorMessage: "Your password needs to be at least 6 characters long.",
-    });
-
-    return;
-  }
-
-  //   ! This regular expression checks password for special characters and minimum length
-  /*
-  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-  if (!regex.test(password)) {
-    res
-      .status(400)
-      .render("auth/signup", {
-        errorMessage: "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter."
-    });
-    return;
-  }
-  */
-
-  // Create a new user - start by hashing the password
-  bcrypt
-    .genSalt(saltRounds)
-    .then((salt) => bcrypt.hash(password, salt))
-    .then((hashedPassword) => {
-      // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword });
-    })
-    .then((user) => {
-      res.redirect("/auth/login");
-    })
-    .catch((error) => {
-      if (error instanceof mongoose.Error.ValidationError) {
-        res.status(500).render("auth/signup", { errorMessage: error.message });
-      } else if (error.code === 11000) {
-        res.status(500).render("auth/signup", {
-          errorMessage:
-            "Username and email need to be unique. Provide a valid username or email.",
-        });
-      } else {
-        next(error);
-      }
-    });
-});
-
-// GET /auth/login
-router.get("/login", isLoggedOut, (req, res) => {
-  res.render("auth/login");
-});
-
-// POST /auth/login
-router.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, email, password } = req.body;
-
-  // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
-    res.status(400).render("auth/login", {
-      errorMessage:
-        "All fields are mandatory. Please provide username, email and password.",
-    });
-
-    return;
-  }
-
-  // Here we use the same logic as above
-  // - either length based parameters or we check the strength of a password
-  if (password.length < 6) {
-    return res.status(400).render("auth/login", {
-      errorMessage: "Your password needs to be at least 6 characters long.",
-    });
-  }
-
-  // Search the database for a user with the email submitted in the form
-  User.findOne({ email })
-    .then((user) => {
-      // If the user isn't found, send an error message that user provided wrong credentials
-      if (!user) {
-        res
-          .status(400)
-          .render("auth/login", { errorMessage: "Wrong credentials." });
-        return;
-      }
-
-      // If user is found based on the username, check if the in putted password matches the one saved in the database
-      bcrypt
-        .compare(password, user.password)
-        .then((isSamePassword) => {
-          if (!isSamePassword) {
-            res
-              .status(400)
-              .render("auth/login", { errorMessage: "Wrong credentials." });
-            return;
-          }
-
-          // Add the user object to the session object
-          req.session.currentUser = user.toObject();
-          // Remove the password field
-          delete req.session.currentUser.password;
-
-          res.redirect("/");
-        })
-        .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
-    })
-    .catch((err) => next(err));
-});
-
-// GET /auth/logout
-router.get("/logout", isLoggedIn, (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      res.status(500).render("auth/logout", { errorMessage: err.message });
+    if (!username || !email || !password) {
+      res.render("auth/signup.hbs", {
+        errorMessage: "All fields are mandatory to be filled to signup",
+      });
       return;
     }
 
+    const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+        if(!regex.test(password)){
+            res.status(500).render('auth/signup.hbs', {errorMessage: 'Password needs at least 6 characters and must have, at least, 1 uppercase letter'})
+        }
+
+    // generate the salt (extra data to password), in 10 saltRounds
+    let salt = await bcrypt.genSalt(saltRounds);
+    let hashedPassword = await bcrypt.hash(password, salt);
+
+    let newUser = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+    });
+
+    req.session.currentUser = newUser;
+    res.redirect("/profile");
+
+  } catch (error) {
+    // If the error that was catched is a Mongoose Validation Error ...
+    if (error instanceof mongoose.Error.ValidationError) {
+      res
+        .status(500)
+        .render("auth/signup.hbs", { errorMessage: error.message });
+    } else if (error.code === 11000) {
+      res.status(500).render("auth/signup.hbs", {
+        errorMessage: "User not found and/or incorrect password",
+      });
+    } else {
+      next(error);
+    }
+  }
+});
+
+/* LOGIN */
+
+// GET Route to display a Login Form
+router.get("/login", isLoggedOut, (req, res) => {
+  res.render("auth/login.hbs");
+});
+
+// POST Route to submit the info of the Login Form
+router.post("/login", async (req, res, next) => {
+  const { email, password } = req.body;
+  try {
+    if (email === "" || password === "") {
+      res.status(400).render("auth/login.hbs", {
+        errorMessage: "Please enter both, email and password",
+      });
+      return;
+    }
+
+    // find a User that has the same email that was prompted
+    let foundUser = await User.findOne({ email });
+    if (!foundUser) {
+      res
+        .status(500)
+        .render("auth/login.hbs", { errorMessage: "User not found" });
+    } else if (bcrypt.compareSync(password, foundUser.password)) {
+      req.session.currentUser = foundUser;
+      res.redirect("/profile");
+    } else {
+      res
+        .status(500)
+        .render("auth/login.hbs", { errorMessage: "Incorrect password" });
+    }
+  } catch (error) {}
+});
+
+/* LOGOUT */
+router.post("/logout", (req, res, next) => {
+  req.session.destroy((err) => {
+    if (err) {
+      next(err);
+    }
     res.redirect("/");
+  });
+});
+
+/* User Profile */
+
+router.get("/profile", isLoggedIn, (req, res) => {
+  console.log(req.session.currentUser);
+  res.render("auth/user-profile.hbs", {
+    userInSession: req.session.currentUser,
   });
 });
 

@@ -14,7 +14,7 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       trim: true,
-      lowercase: true,
+      match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address'],
     },
     password: {
       type: String,
@@ -27,6 +27,7 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("User", userSchema);
+module.exports = model("User", userSchema);
 
-module.exports = User;
+
+
