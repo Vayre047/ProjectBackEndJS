@@ -95,9 +95,11 @@ router.post("/login", async (req, res, next) => {
       res
         .status(500)
         .render("auth/login.hbs", { errorMessage: "User not found" });
+        
     } else if (bcrypt.compareSync(password, foundUser.password)) {
       req.session.currentUser = foundUser;
       res.redirect("/profile");
+
     } else {
       res
         .status(500)

@@ -1,16 +1,15 @@
 {{#if userInSession}}
   <h1>Hi, {{userInSession.username}}! This is your Profile Page :)</h1>
   <div id="logout-form">
-    
-    <form action="/profile" method="POST">
 
-      <a href="/"><button type="submit">Log out</button></a>
+    <form action="/profile" method="POST"> </form>
 
-      {{#if errorMessage}}
-        {{errorMessage}}
-      {{/if}}
-
+    <form action="/logout" method="post">
+      <button type="submit">Log out</button>
     </form>
+    {{#if errorMessage}}
+      {{errorMessage}}
+    {{/if}}
   </div>
 
 {{else}}
