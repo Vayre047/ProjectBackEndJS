@@ -16,6 +16,7 @@
   </head>
 
   <body>
+    
     <nav class="bg-slate-300 w-full static pe-24 navBarConfiguration">
       <div class="pt-3 pb-3 gap-x-6 navBarConfiguration">
         <a href="/">
@@ -30,14 +31,15 @@
         {{! <a href="/signup">
           <img src="/images/profile-user.png" alt="" />
         </a> }}
-        
+
+        {{#if currentUser}}
           <form action="/logout" method="post">
-            <button type="submit">Log out</button>
+            <button type="submit">Log Out</button>
           </form>
-        
+        {{else}}
           <a href="/signup">Sign Up</a>
           <a href="/login">Log In</a>
-        
+        {{/if}}
 
       </div>
     </nav>

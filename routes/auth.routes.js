@@ -19,7 +19,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET route that displays a form for new users to signup
 router.get("/signup", isLoggedOut, (req, res) => {
-  res.render("auth/signup");
+  res.render("auth/signup", { currentUser: req.session.currentUser });
 });
 
 // POST route to submit the data of the form
@@ -38,9 +38,14 @@ router.post("/signup", async (req, res, next) => {
     }
 
     const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-        if(!regex.test(password)){
-            res.status(500).render('auth/signup.hbs', {errorMessage: 'Password needs at least 6 characters and must have, at least, 1 uppercase letter'})
-        }
+    if (!regex.test(password)) {
+      res
+        .status(500)
+        .render("auth/signup.hbs", {
+          errorMessage:
+            "Password needs at least 6 characters and must have, at least, 1 uppercase letter",
+        });
+    }
 
     // generate the salt (extra data to password), in 10 saltRounds
     let salt = await bcrypt.genSalt(saltRounds);
@@ -54,7 +59,6 @@ router.post("/signup", async (req, res, next) => {
 
     req.session.currentUser = newUser;
     res.redirect("/profile");
-
   } catch (error) {
     // If the error that was catched is a Mongoose Validation Error ...
     if (error instanceof mongoose.Error.ValidationError) {
@@ -75,7 +79,7 @@ router.post("/signup", async (req, res, next) => {
 
 // GET Route to display a Login Form
 router.get("/login", isLoggedOut, (req, res) => {
-  res.render("auth/login.hbs");
+  res.render("auth/login.hbs", { currentUser: req.session.currentUser });
 });
 
 // POST Route to submit the info of the Login Form
@@ -95,11 +99,9 @@ router.post("/login", async (req, res, next) => {
       res
         .status(500)
         .render("auth/login.hbs", { errorMessage: "User not found" });
-        
     } else if (bcrypt.compareSync(password, foundUser.password)) {
       req.session.currentUser = foundUser;
       res.redirect("/profile");
-
     } else {
       res
         .status(500)
@@ -123,7 +125,7 @@ router.post("/logout", (req, res, next) => {
 router.get("/profile", isLoggedIn, (req, res) => {
   console.log(req.session.currentUser);
   res.render("auth/user-profile.hbs", {
-    userInSession: req.session.currentUser,
+    currentUser: req.session.currentUser,
   });
 });
 
