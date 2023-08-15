@@ -1,12 +1,11 @@
 <h1 class="text-center text-4xl font-thin titlePosition">Countries</h1>
-
 <div class="flex flex-row flew-wrap content-evenly mainConfiguration">
   {{#each countries}}
     <div class="cardConfigurationContainer">
       <div class="cardConfiguration">
         <a href="/countries/{{_id}}">
         <div class="countryName">
-          <h3 class="text-white text-xl">{{name}}</h3>
+          <h3 class="text-white text-xl countryTitle">{{name}}</h3>
         </div>
           <img src="{{image}}" class="imgCard"></img>
         </a>
