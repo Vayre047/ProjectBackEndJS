@@ -1,0 +1,14 @@
+<h2>Edit the Touristic Point: {{touristicPoint.name}}</h2>
+ 
+<form action="/cities/{{cityId}}/touristicPoints/{{touristicPoint._id}}/edit" method="post">
+  <label> Name:
+    <input type="text" name="name" value="{{touristicPoint.name}}" />
+  </label>
+
+  <label> Description:
+    <textarea name="description" cols="30" rows="4">{{touristicPoint.description}}</textarea>
+  </label>
+ 
+ 
+  <button>Save changes</button>
+</form>

@@ -12,7 +12,11 @@
       <div class="box" id="{{this._id}}">
         <p>Name: {{name}}</p>
         <p>Description: {{description}}</p>
+        <a href="/cities/{{../city._id}}/touristicPoints/{{this._id}}/edit"> Edit the Book</a>
       </div>
+      <form action="/cities/{{../city._id}}/deleteTouristicPoint/{{this._id}}" method="post">
+      <button type="submit">Delete</button>
+    </form> 
     {{/each}}
 
   {{else}}
