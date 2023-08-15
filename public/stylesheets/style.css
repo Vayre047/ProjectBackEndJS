@@ -78,6 +78,12 @@ h1 {
   height: 275px;
 }
 
+.imgCardDetails{
+  border-radius: 5px;
+  width: 450px;
+  height: 275px;
+}
+
 .cardConfiguration:hover .imgCard {
   filter: blur(4px);
   transition: filter 0.3s;
@@ -98,4 +104,16 @@ h1 {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.cardConfigurationCityContainer{
+  position: relative;
+  text-align: center;
+  border-radius: 10px;
+  width: 450px;
+  padding: 0 5px;
+}
+
+.mainContainerDetails{
+  padding-left: 3.75%;
 }

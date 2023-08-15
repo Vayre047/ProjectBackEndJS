@@ -1,10 +1,16 @@
-<h2>Cities in {{country.name}}:</h2>
-<div>
+<h2 class="text-center text-4xl font-thin titlePosition">Cities in {{country.name}}:</h2>
+<div class="flex flex-row flew-wrap content-evenly mainContainerDetails">
   {{#each country.cities}}
-    <div class="box">
-      <a href="/cities/{{_id}}"><h3>{{name}}</h3></a>
-      <p><span class="grey-span">description: </span>{{description}}</p>
-      <img src="{{image}}" />
+    <div class="cardConfigurationCityContainer">
+      <div class="cardConfigurationCity">
+        <a href="/cities/{{_id}}">
+          <h3 class="text-center text-2xl font-thin titlePosition cityTitle">{{name}}</h3>
+          <img src="{{image}}" class="imgCardDetails" />
+        </a>
+        <p class="text-justify">
+          <span class="text-xl font-thin titlePosition">Description: </span>{{description}}
+        </p>
+      </div>
     </div>
   {{/each}}
 </div>
