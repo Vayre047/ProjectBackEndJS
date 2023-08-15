@@ -3,6 +3,7 @@ body {
   width: 100%;
   height: 100%;
   overflow-y: none;
+  background: linear-gradient(135deg, #e6f3ff 60%, #ccffee);
 }
 
 html {
@@ -53,4 +54,31 @@ h1 {
 
 .startBtn{
   border-radius: 15px;
+}
+
+.cardConfigurationContainer{
+  position: relative;
+  text-align: center;
+  border-radius: 10px;
+  width: 450px;
+  padding: 0 5px;
+}
+
+.countryName{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.imgCard{
+  border-radius: 5px;
+  width: 450px;
+  height: 275px;
+}
+
+.mainConfiguration{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
