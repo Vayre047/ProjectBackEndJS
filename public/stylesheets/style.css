@@ -153,6 +153,7 @@ h1 {
 
 .city-card img:hover {
   filter: blur(4px);
+  transition: filter 0.3s;
 }
 
 .city-card img:hover ~ h3 {
