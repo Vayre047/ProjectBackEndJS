@@ -1,22 +1,33 @@
-<h4>{{city.name}} </h4>
-<p>{{city.description}}</p>
-<img src="{{city.image}}" />
-<a href="/cities/{{city._id}}/createTouristicPoint">Add Touristic Point</a>
+<h4 class="text-center text-4xl font-thin titlePosition">{{city.name}} </h4>
+<div class="w-3/5 justify-center mx-auto pt-4">
+  <p class="text-justify">{{city.description}}</p>
+  <img src="{{city.image}}" class="imgCardCityDetails mx-auto h-auto pt-4" />
+  <div class="pt-4 flex justify-center">
+    <a href="/cities/{{city._id}}/createTouristicPoint" class="initialAddBtnConfiguration p-2 bg-blue-600 text-white rounded-md">Add Touristic Point</a>
+  </div>
 
-
-<h2>Touristic Points:</h2>
-<div>
+</div>
+  <h2 class="pt-4 text-center">Touristic Points:</h2>
+  <div class="text-center">
   {{#if city.touristicPoints}}
 
     {{#each city.touristicPoints}}
       <div class="box" id="{{this._id}}">
         <p>Name: {{name}}</p>
         <p>Description: {{description}}</p>
-        <a href="/cities/{{../city._id}}/touristicPoints/{{this._id}}/edit"> Edit Touristic Point</a>
+        <div class="flex flex-row justify-center text-center items-center gap-x-11">
+          <a href="/cities/{{../city._id}}/touristicPoints/{{this._id}}/edit" class= "initialAddBtnConfiguration bg-blue-600 text-white p-2 rounded-md"> Edit Touristic Point</a>
+     
+          <form action="/cities/{{../city._id}}/deleteTouristicPoint/{{this._id}}" method="post">
+            <div class="pt-4"></div>
+              <button type="submit" class="initialDeleteBtnConfiguration bg-red-600 text-white p-2 rounded-md m-auto">Delete</button>
+            </div>
+          </form>
+        </div>
       </div>
-      <form action="/cities/{{../city._id}}/deleteTouristicPoint/{{this._id}}" method="post">
-        <button type="submit">Delete</button>
-      </form> 
+        
+        
+     
 
       <!-- Form to Create a Review -->  
       <form action=" /cities/{{../city._id}}/touristicPoints/{{this._id}}/createReview" method="post">
@@ -44,8 +55,6 @@
       {{/each}}
 
     {{/each}}
-
-
   {{else}}
     <p>No Touristic Points!</p>
   {{/if}}

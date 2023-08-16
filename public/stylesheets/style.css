@@ -84,6 +84,12 @@ h1 {
   height: 275px;
 }
 
+.imgCardCityDetails {
+  border-radius: 5px;
+  width: 650px;
+  height: 450px;
+}
+
 .cardConfiguration:hover .imgCard {
   filter: blur(4px);
   transition: filter 0.3s;
@@ -116,4 +122,20 @@ h1 {
 
 .mainContainerDetails{
   padding-left: 3.75%;
+}
+
+.initialAddBtnConfiguration{
+  border: 1px #2563eb solid;
+}
+
+.addBtn{
+  margin-left: 42.5%;
+}
+
+.initialDeleteBtnConfiguration{
+  border: 1px #dc2626 solid;
+}
+
+.inputCreatePosition{
+  margin-left: 43%;
 }
