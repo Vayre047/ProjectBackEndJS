@@ -177,3 +177,13 @@ h1 {
 .inputCreatePosition {
   margin-left: 43%;
 }
+
+.cardConfiguration{
+  padding: 2% 5%;
+  display: table;
+  margin: 0 auto;
+}
+
+.addReview{
+  margin: 2vw;
+}

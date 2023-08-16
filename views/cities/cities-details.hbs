@@ -23,40 +23,39 @@
               <button type="submit" class="initialDeleteBtnConfiguration bg-red-600 text-white p-2 rounded-md m-auto">Delete</button>
             </div>
           </form>
-        </div>
-      </div>
-        
-        
-     
-
-      <!-- Form to Create a Review -->  
-      <form action=" /cities/{{../city._id}}/touristicPoints/{{this._id}}/createReview" method="post">
       
-      <label for="content">Content</label>
-      <textarea name="content" id="content" cols="30" rows="2"></textarea>
+        
+      <!-- Form to Create a Review -->  
+        <form action=" /cities/{{../city._id}}/touristicPoints/{{this._id}}/createReview" method="post">
+          <div class="border border-sky-500 rounded cardConfiguration">
+            {{!-- <label for="content">Content</label> --}}
+            <textarea name="content" id="content" cols="30" rows="2" class="w-96 h-18 border border-solid border-2 border-blue-400 pt-4"></textarea>
 
-      <label for="rating">Rating</label>
-      <input type="number" name="rating">
+            <div class="pt-6 justify-evenly">
+              <label for="rating">Rating:</label>
+              <input type="number" name="rating" class="w-10 h-6 border border-solid border-2 border-blue-400">
+              <div class="p-4">
+              <button type="submit" class="initialAddBtnConfiguration bg-blue-600 text-white p-2 rounded-md w-32">Add new review</button>
+              </div>
+            </div>
+          </div>
+        </form>
 
-      <button type="submit">Create the review</button>
-      </form>
+        {{#each reviews}}
+          <div>
+            <!-- Actually displaying the review -->
+            <p><span>Review for {{../name}}: </span> {{content}} <span>RATING:{{rating}}</span></p>
+            <!-- Deleting the Review -->
 
-      {{#each reviews}}
-        <div>
-          <!-- Actually displaying the review -->
-          <p> <span>Review for {{../name}}: </span> {{content}} <span>RATING:{{rating}}</span></p>
-          <!-- Deleting the Review -->
+            {{!-- <form action=" /cities/{{.../city._id}}/deleteTouristicPoint/{{../touristicPoint._id}}}}/deleteReview/{{._id}} /review/delete/{{_id}}" method="post">
+              <button type="submit">Delete</button>
+            </form> --}}
 
-          {{!-- <form action=" /cities/{{.../city._id}}/deleteTouristicPoint/{{../touristicPoint._id}}}}/deleteReview/{{._id}} /review/delete/{{_id}}" method="post">
-             <button type="submit">Delete</button>
-          </form> --}}
-
-         </div>
-      {{/each}}
-
-    {{/each}}
+            </div>
+          {{/each}}
+        {{/each}}
   {{else}}
     <p>No Touristic Points!</p>
   {{/if}}
+  </div>
 </div>
-
