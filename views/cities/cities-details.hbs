@@ -15,9 +15,36 @@
         <a href="/cities/{{../city._id}}/touristicPoints/{{this._id}}/edit"> Edit Touristic Point</a>
       </div>
       <form action="/cities/{{../city._id}}/deleteTouristicPoint/{{this._id}}" method="post">
-      <button type="submit">Delete</button>
-    </form> 
+        <button type="submit">Delete</button>
+      </form> 
+
+      <!-- Form to Create a Review -->  
+      <form action=" /cities/{{../city._id}}/touristicPoints/{{this._id}}/createReview" method="post">
+      
+      <label for="content">Content</label>
+      <textarea name="content" id="content" cols="30" rows="2"></textarea>
+
+      <label for="rating">Rating</label>
+      <input type="number" name="rating">
+
+      <button type="submit">Create the review</button>
+      </form>
+
+      {{#each reviews}}
+        <div>
+          <!-- Actually displaying the review -->
+          <p> <span>Review for {{../name}}: </span> {{content}} <span>RATING:{{rating}}</span></p>
+          <!-- Deleting the Review -->
+
+          {{!-- <form action=" /cities/{{.../city._id}}/deleteTouristicPoint/{{../touristicPoint._id}}}}/deleteReview/{{._id}} /review/delete/{{_id}}" method="post">
+             <button type="submit">Delete</button>
+          </form> --}}
+
+         </div>
+      {{/each}}
+
     {{/each}}
+
 
   {{else}}
     <p>No Touristic Points!</p>

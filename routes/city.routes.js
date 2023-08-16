@@ -18,20 +18,37 @@ router.get("/cities", async (req, res) => {
 router.get("/cities/:cityId", async (req, res, next) => {
   const { cityId } = req.params;
   try {
-    
     // Populate cities with Touristic Points
-    let foundCity = await City.findById(cityId);
-    await foundCity.populate("touristicPoints");
+    let foundCity = await City.findById(cityId).populate("touristicPoints");
+    
+    //Populate touristic points with reviews
+    await foundCity.populate({
+      path: "touristicPoints",
+      populate: {
+        path: "reviews",
+        model: "Review",
+      },
+    });
+
+   
+
+    // Associate the reviews with author
+    // await foundCity.populate({
+    //   // info on how to populate
+    //   path: "reviews", // for the collection
+    //   populate: {
+    //     path: "author", //what we want to populate that is inside the reviews
+    //     model: "User",
+    //   },
+    // });
+
     console.log(foundCity);
 
     res.render("cities/cities-details.hbs", { city: foundCity });
-
   } catch (error) {
     console.log(error);
     next(error);
   }
 });
-
-
 
 module.exports = router;

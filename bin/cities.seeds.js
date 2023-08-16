@@ -13,7 +13,8 @@ const TouristicPoint = require('../models/TouristicPoint.model.js');
 const MONGO_URI =
    "mongodb+srv://tomasagua13:MGB4JVmdFmhHyA4i@cluster0.8hbsnae.mongodb.net/?retryWrites=true&w=majority"
 
-
+// const MONGO_URI =
+//   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/ProjectBackEndJS";
 const cities = [
   {
     name: 'Rome',
