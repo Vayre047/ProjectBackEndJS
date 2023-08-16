@@ -19,14 +19,14 @@ const countries = [
   {
     name: 'Italy',
     image: '/images/Country-Italy.jpg',
-    description: "Italy is home to some of the world's best food, wine, and art. Add in gorgeous coastlines, beautiful beaches, world-class fashion, phenomenal hiking trails, villas in Tuscany, and gelato, and you have the ingredients for an epic vacation."
+    description: "Italy, a timeless masterpiece of culture and beauty, unfolds its rich tapestry of art, architecture, and culinary delights across diverse landscapes, from the romantic canals of Venice to the historic ruins of Rome."
 
   },
 
   {
     name: 'Japan',
     image: '/images/Country-Japan.jpg',
-    description: "Japan is a fascinating country of economic and business prowess, rich culture, technical wizardry, spatial conundrums and contradictions. Japan held onto the title of the world's second largest economy for more than 40 years from 1968 to 2010. Tokyo, Japan's capital city, is the world's largest metropolitan area, with a population of 32.5 million people. Despite having an area slightly bigger than Germany and smaller than California, Japan is the world's tenth largest country by population, with 127.3 million people."
+    description: "Japan, a captivating blend of ancient tradition and technological innovation, offers a journey through serene temples, serene landscapes, and bustling modern cities, all underpinned by a deep reverence for harmony and balance."
   }
 
 ];

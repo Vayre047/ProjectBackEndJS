@@ -1,29 +1,30 @@
 <div id="form">
-  <h2>Create an Account</h2>
-  <form action="/signup" method="POST">
-
-    <label>
-      Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
-
-    <label>
-      Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
-
-    <label>
-      Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-
-    <button type="submit"></a>Sign Up</button>
-
-    <h5>Already have an account?<a href="/login">Log In</a></h5>
-  </form>
-  
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  
+  <h2 class="text-center text-4xl font-thin titlePosition">Create an Account</h2>
+    <div class="justify-center mt-32">
+    <form action="/signup" method="POST">
+      <div class="justify-center mt-32 flex flex-col items-center">
+        <label class="pt-4">
+          Username
+          <input type="text" name="username" placeholder="Your username" class="w-56 h-10 border border-solid border-2 border-blue-400 rounded block ps-2" />
+        </label>
+        <label class="pt-4">
+          Email
+          <input type="email" name="email" placeholder="Your email" class="w-56 h-10 border border-solid border-2 border-blue-400 rounded block ps-2" />
+        </label>
+        <label class="pt-4">
+          Password
+          <input type="password" name="password" placeholder="Your password" class="w-56 h-10 border border-solid border-2 border-blue-400 rounded block ps-2" />
+        </label>
+        <div class="pt-4">
+          <button type="submit" class="initialAddBtnConfiguration bg-blue-600 text-white p-2 rounded-md w-56">Sign Up</button>
+        </div>
+          <h5 class="pt-4">Already have an account?
+            <a href="/login" class="text-blue-400 hover:text-blue-800 hover:underline underline-offset-4">Log In</a>
+          </h5>
+        {{#if errorMessage}}
+          <p class="error">{{errorMessage}}</p>
+        {{/if}}
+      </div>
+    </form>
+  </div>
 </div>
