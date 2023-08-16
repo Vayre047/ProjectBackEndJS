@@ -7,7 +7,7 @@ body {
 }
 
 html {
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -18,17 +18,18 @@ h1 {
   color: 15px;
 }
 
-.navBarConfiguration{
+.navBarConfiguration {
   display: flex;
   flex-direction: row;
   justify-content: end;
+  align-items: center;
 }
 
-.mainBackground{
+.mainBackground {
   position: relative;
 }
 
-.backgroundConfiguration{
+.backgroundConfiguration {
   position: absolute;
   top: 10%;
   left: 30%;
@@ -37,34 +38,33 @@ h1 {
   flex-direction: column;
 }
 
-.imageConfiguration{
+.imageConfiguration {
   width: 100%;
   height: 92.4%;
 }
 
-.titlePosition{
-  font-family: 'Dancing Script', cursive;
+.titlePosition {
+  font-family: "Dancing Script", cursive;
 }
 
-.lineConfiguration{
+.lineConfiguration {
   color: #000;
   border: 1px #000 solid;
   height: 0.1px;
 }
 
-.startBtn{
-  border-radius: 15px;
+.startBtn {
+  border-radius: 10px;
 }
 
-.cardConfigurationContainer{
+.cardConfigurationContainer {
   position: relative;
   text-align: center;
   border-radius: 10px;
   width: 450px;
-  padding: 0 5px;
 }
 
-.countryName{
+.countryName {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -72,20 +72,19 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
-.imgCard{
-  border-radius: 5px;
+.imgCard {
+  border-radius: 10px;
   width: 450px;
   height: 275px;
 }
 
-.imgCardDetails{
-  border-radius: 5px;
+.imgCardDetails {
   width: 450px;
   height: 275px;
 }
 
 .imgCardCityDetails {
-  border-radius: 5px;
+  border-radius: 10px;
   width: 650px;
   height: 450px;
 }
@@ -100,19 +99,19 @@ h1 {
   z-index: 20;
 }
 
-.imgCard:hover .countryTitle{
+.imgCard:hover .countryTitle {
   opacity: 1;
   transform: scale(1.1);
 }
 
-.mainConfiguration{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
+.country-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  place-items: center;
 }
 
-.cardConfigurationCityContainer{
+.cardConfigurationCityContainer {
   position: relative;
   text-align: center;
   border-radius: 10px;
@@ -120,22 +119,60 @@ h1 {
   padding: 0 5px;
 }
 
-.mainContainerDetails{
-  padding-left: 3.75%;
+.city-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  place-items: center;
 }
 
-.initialAddBtnConfiguration{
+.city-card {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 450px;
+  height: 400px;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.city-card > a {
+  position: relative;
+}
+
+.city-card h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.city-card img:hover {
+  filter: blur(4px);
+}
+
+.city-card img:hover ~ h3 {
+  opacity: 1;
+  font-size: 2.4em;
+  z-index: 20;
+}
+
+.initialAddBtnConfiguration {
   border: 1px #2563eb solid;
 }
 
-.addBtn{
+.addBtn {
   margin-left: 42.5%;
 }
 
-.initialDeleteBtnConfiguration{
+.initialDeleteBtnConfiguration {
   border: 1px #dc2626 solid;
 }
 
-.inputCreatePosition{
+.inputCreatePosition {
   margin-left: 43%;
 }

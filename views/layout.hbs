@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    
+
     <nav class="bg-slate-300 w-full static pe-24 navBarConfiguration">
       <div class="pt-3 pb-3 gap-x-6 navBarConfiguration">
         <a href="/">
@@ -33,7 +33,7 @@
         </a> }}
 
         {{#if currentUser}}
-          <form action="/logout" method="post">
+          <form action="/logout" method="post" class="m-0">
             <button type="submit">Log Out</button>
           </form>
         {{else}}
