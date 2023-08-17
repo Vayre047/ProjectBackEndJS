@@ -1,21 +1,27 @@
 {{#if currentUser}}
-  <h1>Hi! This is your Profile Page</h1>
-  <div id="logout-form">
+  <h1 class="text-center text-2xl titleProfilePosition">Welcome, {{currentUser.username}} !</h1>
+  <div class="logOutForm">
+    <hr class="lineProfileConfiguration">
+    <div id="logout-form">
+      <form action="/profile" method="POST"> </form>
+      <div class="flex flex-row pb-3 profileComponent">
+        <img src="../images/UserProfile.png" alt="User Profile">
+        <div class="flex flex-col ps-4 pt-3">
+          <p>Username: {{currentUser.username}}</p>
+          <p>Email: {{currentUser.email}}</p>
+        </div>
+        <form action="/logout" method="post" class="pt-4 profileLogOutBtnPosition">
+          <button type="submit" class="bg-blue-600 text-white p-2 rounded-md w-32">Log out</button>
+        </form>
+      </div>
+      <hr class="lineProfileConfiguration">
+      
+      {{#if errorMessage}}
+        {{errorMessage}}
+      {{/if}}
+    </div>
 
-    <form action="/profile" method="POST"> </form>
-
-    <form action="/logout" method="post">
-      <button type="submit">Log out</button>
-    </form>
-    {{#if errorMessage}}
-      {{errorMessage}}
-    {{/if}}
   </div>
-
 {{else}}
   <p>Still not logged in </p>
-
 {{/if}}
-
-
-

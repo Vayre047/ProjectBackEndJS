@@ -54,6 +54,16 @@ h1 {
   height: 0.1px;
 }
 
+.lineProfileConfiguration {
+  display: flex;
+  margin: auto;
+  color: #99c2ff;
+  border: 1px #99c2ff solid;
+  height: 0.1px;
+  width: 700px;
+  margin-top: auto;
+}
+
 .startBtn {
   border-radius: 10px;
 }
@@ -195,4 +205,20 @@ h1 {
   top: 10px;
   font-weight: bold;
   font-size: 1rem;
+}
+
+.profileComponent{
+  margin-left: 430px;
+}
+
+.profileLogOutBtnPosition{
+  margin-left: 300px;
+}
+
+.logOutForm{
+  margin-top: 140px;
+}
+
+.titleProfilePosition{
+  padding-top: 140px;
 }
