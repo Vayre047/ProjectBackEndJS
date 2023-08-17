@@ -6,45 +6,36 @@ const City = require("../models/City.model.js");
 //const User = require("../models/User.model.js");
 const TouristicPoint = require("../models/TouristicPoint.model.js");
 
-router.get("/cities", async (req, res) => {
+const isLoggedIn = require("../middleware/isLoggedIn");
+
+router.get("/cities", isLoggedIn, async (req, res) => {
   try {
     const allCitiesFromDB = await City.find();
-    res.render("cities/cities-list.hbs", { cities: allCitiesFromDB });
+    res.render("cities/cities-list.hbs", { cities: allCitiesFromDB, currentUser: req.session.currentUser});
   } catch (error) {
     console.log("Error while getting cities", error);
   }
 });
 
-router.get("/cities/:cityId", async (req, res, next) => {
+router.get("/cities/:cityId", isLoggedIn, async (req, res, next) => {
   const { cityId } = req.params;
   try {
     // Populate cities with Touristic Points
-    let foundCity = await City.findById(cityId).populate("touristicPoints");
-    
+    let foundCity = await City.findById(cityId);
+
     //Populate touristic points with reviews
     await foundCity.populate({
       path: "touristicPoints",
       populate: {
         path: "reviews",
-        model: "Review",
+        populate: {
+          path: "author",
+          model: "User",
+        },
       },
     });
 
-   
-
-    // Associate the reviews with author
-    // await foundCity.populate({
-    //   // info on how to populate
-    //   path: "reviews", // for the collection
-    //   populate: {
-    //     path: "author", //what we want to populate that is inside the reviews
-    //     model: "User",
-    //   },
-    // });
-
-    console.log(foundCity);
-
-    res.render("cities/cities-details.hbs", { city: foundCity });
+    res.render("cities/cities-details.hbs", { city: foundCity, currentUser: req.session.currentUser });
   } catch (error) {
     console.log(error);
     next(error);

@@ -5,13 +5,15 @@ const Country = require("../models/Country.model.js");
 const City = require("../models/City.model.js");
 //const User = require("../models/User.model.js");
 
+const isLoggedIn = require("../middleware/isLoggedIn");
+
 //GET route to display all the countries in the database
-router.get("/countries", async (req, res) => {
+router.get("/countries", isLoggedIn, async (req, res) => {
   try {
     // get all countries from our Database via .find() method
     let allCountriesFromDB = await Country.find();
 
-    res.render("countries/countries-list.hbs", { countries: allCountriesFromDB });
+    res.render("countries/countries-list.hbs", { countries: allCountriesFromDB, currentUser: req.session.currentUser });
 
   } catch (error) {
     console.log("Error while getting countries", error);
@@ -20,7 +22,7 @@ router.get("/countries", async (req, res) => {
 
 
 
-router.get("/countries/:countryId", async (req, res) => {
+router.get("/countries/:countryId", isLoggedIn, async (req, res) => {
   try {
    
     const { countryId } = req.params;
@@ -30,7 +32,7 @@ router.get("/countries/:countryId", async (req, res) => {
 
     await foundCountry.populate('cities');
 
-    res.render("countries/countries-details.hbs", { country: foundCountry});
+    res.render("countries/countries-details.hbs", { country: foundCountry, currentUser: req.session.currentUser});
 
   } catch (error) {
     console.log(error);
