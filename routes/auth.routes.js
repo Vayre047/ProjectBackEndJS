@@ -58,7 +58,7 @@ router.post("/signup", async (req, res, next) => {
     });
 
     req.session.currentUser = newUser;
-    res.redirect("/profile");
+    res.redirect("/countries");
   } catch (error) {
     // If the error that was catched is a Mongoose Validation Error ...
     if (error instanceof mongoose.Error.ValidationError) {
@@ -101,7 +101,7 @@ router.post("/login", async (req, res, next) => {
         .render("auth/login.hbs", { errorMessage: "User not found" });
     } else if (bcrypt.compareSync(password, foundUser.password)) {
       req.session.currentUser = foundUser;
-      res.redirect("/profile");
+      res.redirect("/countries");
     } else {
       res
         .status(500)

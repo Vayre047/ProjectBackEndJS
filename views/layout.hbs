@@ -17,27 +17,81 @@
 
   <body>
 
-    <nav class="bg-slate-300 w-full static pe-24 navBarConfiguration">
-      <div class="pt-3 pb-3 gap-x-6 navBarConfiguration">
-        <a href="/">
-          <img src="/images/Home.png" alt="Home Route" />
-        </a>
-        <a href="/countries">
-          <img src="/images/airplane.png" alt="" />
-        </a>
+    <nav class="w-full">
 
-        {{#if currentUser}}
-          <form action="/logout" method="post" class="m-0">
-            <button type="submit">Log Out</button>
-          </form>
-        {{else}}
-          <a href="/signup">Sign Up</a>
-          <a href="/login">Log In</a>
-        {{/if}}
+      <div class="px-5 py-2 navBarConfiguration">
+        <a href="/">
+          <img src="/images/logo.png" alt="Home Route" class="logo-img" />
+        </a>
+        <nav class="nav-icons">
+          <a href="/" class="home">
+
+            <img src="/images/home.png" alt="Home Route" class="icon" />
+            <label for="home-icon"> Home</label>
+
+          </a>
+
+          <div class="countries">
+            <a href="/countries">
+              <img
+                src="/images/countries.png"
+                alt="Countries Route"
+                class="icon"
+              />
+            </a>
+            <label for="countries-icon"> Countries</label>
+
+          </div>
+
+          {{#if currentUser}}
+
+          <div class="profile">
+            <a href="/profile">
+              <img
+                src="/images/user-profile.png"
+                alt="Countries Route"
+                class="icon"
+              />
+            </a>
+            <label for="profile-icon"> Profile</label>
+
+          </div>
+
+          {{/if}}
+
+          <div class="authentication-btn">
+
+            {{#if currentUser}}
+              <form action="/logout" method="post" class="m-0">
+                <button
+                  type="submit"
+                  class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"
+                >Log Out</button>
+              </form>
+            {{else}}
+              <a href="/signup">
+                <button
+                  type="button"
+                  class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"
+                >Sign Up</button></a>
+
+              <a href="/login"><button
+                  type="button"
+                  class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"
+                >Log In</button></a>
+            {{/if}}
+
+          </div>
+        </nav>
 
       </div>
+
     </nav>
+
+  
+
     {{{body}}}
+
 
     <script src="/js/script.js"></script>
   </body>
