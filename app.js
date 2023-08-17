@@ -30,19 +30,14 @@ app.use("/", indexRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/", authRoutes);
 
-const countryRoutes = require('./routes/country.routes');
-app.use('/', countryRoutes);
+const countryRoutes = require("./routes/country.routes");
+app.use("/", countryRoutes);
 
-const cityRoutes = require('./routes/city.routes');
-app.use('/', cityRoutes);
+const cityRoutes = require("./routes/city.routes");
+app.use("/", cityRoutes);
 
-const touristicPointRoutes = require('./routes/touristicPoint.routes');
-app.use('/', touristicPointRoutes);
-
-// app.use(function(req, res, next) {
-//   res.locals.isAuthenticated = req.isAuthenticated();
-// })
-
+const touristicPointRoutes = require("./routes/touristicPoint.routes");
+app.use("/", touristicPointRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
