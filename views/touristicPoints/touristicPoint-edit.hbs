@@ -1,14 +1,16 @@
-<h2>Edit the Touristic Point: {{touristicPoint.name}}</h2>
- 
-<form action="/cities/{{cityId}}/touristicPoints/{{touristicPoint._id}}/edit" method="post">
-  <label> Name:
-    <input type="text" name="name" value="{{touristicPoint.name}}" />
-  </label>
-
-  <label> Description:
-    <textarea name="description" cols="30" rows="4">{{touristicPoint.description}}</textarea>
-  </label>
- 
- 
-  <button>Save changes</button>
-</form>
+<h2 class="text-center text-4xl font-thin mt-16 titlePosition">Edit {{touristicPoint.name}}</h2>
+<div class="justify-center mt-28">
+  <form action="/cities/{{cityId}}/touristicPoints/{{touristicPoint._id}}/edit" method="post">
+    <div class="justify-center mt-28 flex flex-col items-center">
+      <label class="mb-4"> Name:
+        <input type="text" name="name" value="{{touristicPoint.name}}" class="w-72 h-10 border border-solid border-2 border-blue-400 rounded block ps-2" />
+      </label>
+      <label> Description:
+        <textarea name="description" cols="30" rows="4" class="w-72 h-32 border border-solid border-2 border-blue-400 rounded block ps-2">{{touristicPoint.description}}</textarea>
+      </label>
+      <div class="flex flex-row justify-center text-center items-center pt-4 ps-1">
+        <button class="bg-blue-600 text-white p-2 rounded-md w-44">Save changes</button>
+      </div>
+    </div>
+  </form>
+</div>
