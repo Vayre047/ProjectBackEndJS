@@ -1,20 +1,18 @@
 <div>
-  <h4 class="text-center text-4xl font-thin titlePosition">Create a Touristic Point in {{city.name}}</h4>
+  <h4 class="text-center text-4xl font-thin mt-16 titlePosition">Create a Touristic Point in {{city.name}}</h4>
   <!-- Form to Create a Touristic Point -->
   <div class="justify-center mt-32 flex flex-col items-center">
     <form action="/cities/{{city._id}}/createTouristicPoint" method="post">
     <div>
       <label class="text-center">
         Name:
-        <input type="text" name="name"
-          class="w-56 h-10 border border-solid border-2 border-blue-400 rounded block" />
+        <input type="text" name="name" class="w-72 h-10 border border-solid border-2 border-blue-400 rounded block ps-2" />
       </label>
     </div>
-    <div>
+    <div class="mt-4">
       <label class="text-center">
         Description:
-        <input type="text" name="description"
-          class="w-56 h-10 border border-solid border-2 border-blue-400 rounded block" />
+        <textarea name="description" cols="30" rows="10" class="w-72 h-10 border border-solid border-2 border-blue-400 rounded block ps-2"></textarea>
       </label>
     </div>
       <div class="justify-center text-center items-center pt-4">
