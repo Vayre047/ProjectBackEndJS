@@ -154,18 +154,3 @@ router.post(
 
 module.exports = router;
 
-// router.post("/cities/:cityId/deleteTouristicPoint/:touristicPointId/deleteReview/:reviewId", async (req, res) => {
-//   try {
-//     const {cityId} = req.params
-//     const { touristicPointId } = req.params;
-//     const {reviewId} = req.params;
-
-//     const removeReview = await Review.findByIdAndRemove(reviewId)
-//     await TouristicPoint.findByIdAndUpdate(touristicPointId, {$pull: {reviews: removeReview._id}});
-
-//     res.redirect(`/cities/${cityId}`);
-
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
