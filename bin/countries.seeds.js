@@ -13,23 +13,55 @@ const TouristicPoint = require('../models/TouristicPoint.model.js');
 const MONGO_URI =
    "mongodb+srv://tomasagua13:MGB4JVmdFmhHyA4i@cluster0.8hbsnae.mongodb.net/?retryWrites=true&w=majority"
 
-// const MONGO_URI =
-//   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/ProjectBackEndJS";
+
 
 const countries = [
 
   {
     name: 'Italy',
     image: '/images/Country-Italy.jpg',
-    description: "Italy, a timeless masterpiece of culture and beauty, unfolds its rich tapestry of art, architecture, and culinary delights across diverse landscapes, from the romantic canals of Venice to the historic ruins of Rome."
+  },
 
+  {
+    name:'United Kingdom',
+    image: '/images/Country-UnitedKingdom.jpeg',
+  },
+
+  {
+    name:'France',
+    image: '/images/Country-France.jpeg',
+  },
+
+  {
+    name:'Greece',
+    image: '/images/Country-Greece.jpeg',
+  },
+
+  {
+    name: 'Croatia',
+    image: '/images/Country-Croatia.jpeg'
   },
 
   {
     name: 'Japan',
     image: '/images/Country-Japan.jpg',
-    description: "Japan, a captivating blend of ancient tradition and technological innovation, offers a journey through serene temples, serene landscapes, and bustling modern cities, all underpinned by a deep reverence for harmony and balance."
-  }
+  }, 
+
+  {
+    name: 'United States',
+    image: '/images/Country-UnitedStates.jpeg',
+  },
+
+  {
+    name:'Australia',
+    image: '/images/Country-Australia.jpeg',
+  },
+
+  {
+    name:'South Africa',
+    image: '/images/Country-SouthAfrica.jpeg',
+  },
+
 
 ];
 
