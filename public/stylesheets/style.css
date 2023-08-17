@@ -1,9 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  width: 100%;
-  height: 100%;
-  overflow-y: none;
-  background: linear-gradient(135deg, #e6f3ff 60%, #ccffee);
+
+  background: linear-gradient(135deg, #cbd5e1 60%, #ccffee);
 }
 
 html {
@@ -20,13 +23,33 @@ h1 {
 
 .navBarConfiguration {
   display: flex;
-  flex-direction: row;
-  justify-content: end;
+  background-color: #abc6d3;
+}
+
+.navBarConfiguration nav {
+  display: flex;
+  gap: 3rem;
+  margin-left: auto;
+}
+
+.nav-icons {
+  display: flex;
   align-items: center;
 }
 
-.mainBackground {
-  position: relative;
+.logo-img {
+  width: 150px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.countries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .backgroundConfiguration {
@@ -120,6 +143,9 @@ h1 {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   place-items: center;
+  margin: 0 auto;
+  width: 1500px;
+  padding-bottom: 50px;
 }
 
 .cardConfigurationCityContainer {
@@ -135,6 +161,9 @@ h1 {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   place-items: center;
+  margin: 0 auto;
+  width: 1500px;
+  padding-bottom: 50px;
 }
 
 .city-card {
@@ -207,18 +236,57 @@ h1 {
   font-size: 1rem;
 }
 
-.profileComponent{
-  margin-left: 430px;
+.card-profile {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 10px 10px 37px -18px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: 10px 10px 37px -18px rgba(0, 0, 0, 0.68);
+  box-shadow: 10px 10px 37px -18px rgba(0, 0, 0, 0.68);
 }
 
-.profileLogOutBtnPosition{
-  margin-left: 300px;
+.card-profile h1 {
+  font-size: 1.2rem;
+  margin: 30px 0;
 }
 
-.logOutForm{
-  margin-top: 140px;
+.profile-info-img {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 70px;
 }
 
-.titleProfilePosition{
-  padding-top: 140px;
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.profile-img img {
+  width: 80px;
+  height: 80px;
+}
+
+.profile-info h2 {
+  font-size: 1.2rem;
+}
+
+.profile-info span {
+  font-size: 1rem;
+}
+
+hr {
+  border: 1px solid black;
+  margin: 30px 0;
+  width: 90%;
 }
