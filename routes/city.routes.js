@@ -34,7 +34,7 @@ router.get("/cities/:cityId", isLoggedIn, async (req, res, next) => {
         },
       },
     });
-
+    console.log(foundCity)
     res.render("cities/cities-details.hbs", { city: foundCity, currentUser: req.session.currentUser });
   } catch (error) {
     console.log(error);

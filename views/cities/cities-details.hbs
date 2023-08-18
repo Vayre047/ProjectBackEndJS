@@ -16,36 +16,36 @@
         {{#if rating}}
           <p class="touristic-point-rating">{{rating}} ⭐️</p>
         {{/if}}
-        <p class="font-bold my-4 text-center text-2xl titlePosition">{{name}}</p>
-        <p class="mx-4 text-justify">{{description}}</p>
+        <p class="font-bold my-4 text-center text-3xl titlePosition">{{name}}</p>
+        <p class="mx-4 my-6 text-justify">{{description}}</p>
         <div class="flex flex-row justify-center text-center items-center gap-x-11">
           <a href="/cities/{{../city._id}}/touristicPoints/{{this._id}}/edit" class= "initialAddBtnConfiguration bg-blue-600 text-white p-2 rounded-md"> Edit Touristic Point</a>
      
           <form action="/cities/{{../city._id}}/deleteTouristicPoint/{{this._id}}" method="post">
-            <div class="pt-4"></div>
+          
               <button type="submit" class="initialDeleteBtnConfiguration bg-red-600 text-white p-2 rounded-md m-auto">Delete</button>
-            </div>
           </form>
+        </div>
       
         
-      <!-- Form to Create a Review -->  
+        <!-- Form to Create a Review -->  
         <details class="p-4">
           <summary class="p-4 mb-3 rounded-lg bg-white border-solid border border-black">
             Reviews
           </summary>
 
-          {{#each reviews}}
+          {{#each this.reviews}}
           <div class="p-4 mb-3 bg-white rounded-lg">
             <!-- Actually displaying the review -->
             <p>Author: {{author.username}}</p>
-            <p>Rating: {{rating}} ⭐️</p>
+            <p class="my-2">Rating: {{rating}} ⭐️ </p>
             </p> {{content}} </p>
           </div>
 
-          <hr>
+          <hr class="w-full">
           {{/each}}
           <form action=" /cities/{{../city._id}}/touristicPoints/{{this._id}}/createReview" method="post">
-            <div class="border border-sky-500 rounded cardConfiguration flex flex-col justify-center items-center">
+            <div class="border border-sky-500 rounded cardConfiguration flex flex-col justify-center items-center my-10">
               {{!-- <label for="content">Content</label> --}}
               <textarea name="content" id="content" cols="30" rows="4" class="w-auto h-18 border border-solid border-2 border-blue-400 text-center my-6"></textarea>
 
@@ -58,7 +58,8 @@
             </div>
           </form> 
         </details>
-        {{/each}}
+      </div>
+    {{/each}}
   {{else}}
     <p>No Touristic Points!</p>
   {{/if}}

@@ -226,6 +226,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: 0 100px;
+  padding-bottom: 50px;
 }
 
 .touristic-point-rating {
