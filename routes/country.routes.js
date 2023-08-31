@@ -20,8 +20,6 @@ router.get("/countries", isLoggedIn, async (req, res) => {
   }
 });
 
-
-
 router.get("/countries/:countryId", isLoggedIn, async (req, res) => {
   try {
    
